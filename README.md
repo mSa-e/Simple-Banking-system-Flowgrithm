@@ -1,1 +1,3 @@
-# Simple-Banking-system-Flowgrithm-
+# Simple-Banking-system-Flowgrithm
+
+Investigate and have fun ;>

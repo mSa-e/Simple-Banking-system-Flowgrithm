@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="Bank system"/>
+        <attribute name="authors" value="ADMIN"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-12-17 06:44:09 PM"/>
+        <attribute name="created" value="QURNSU47REVBRENPREU7MjAyNC0xMi0xNDswNTozMjozOSBQTTsyMTk2"/>
+        <attribute name="edited" value="Q09NUFVNQVJUUztERVNLVE9QLUk5S09PTU47MjAyNC0xMi0xNTsxMjo0MTozMSBQTTsyOzMyNjI="/>
+        <attribute name="edited" value="RW5nLkthcmVlbTtERVNLVE9QLTRMQTJNSTI7MjAyNC0xMi0xNjswMjoxNTozMiBQTTsyOzMzMzU="/>
+        <attribute name="edited" value="QURNSU47REVBRENPREU7MjAyNC0xMi0xNzswNjo0NDowOSBQTTs0OzIzMTE="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="balance, choice, deposit, wd" type="Real" array="False" size=""/>
+            <declare name="creditnum" type="Integer" array="False" size=""/>
+            <declare name="name, ch" type="String" array="False" size=""/>
+            <assign variable="deposit" expression="0"/>
+            <assign variable="balance" expression="1000"/>
+            <assign variable="choice" expression="0"/>
+            <declare name="id, in" type="Integer" array="False" size=""/>
+            <assign variable="id" expression="2025"/>
+            <assign variable="wd" expression="0"/>
+            <output expression="&quot;Insert ur name:&quot;" newline="True"/>
+            <input variable="name"/>
+            <output expression="&quot;Hello Mr/Mrs &quot;&amp;name&amp;&quot; .&quot;" newline="True"/>
+            <output expression="&quot;You are highly welcomed&quot;" newline="True"/>
+            <output expression="&quot;Do you have an account(yes/no)&quot;" newline="True"/>
+            <input variable="ch"/>
+            <while expression="ch!=&quot;yes&quot;||ch!=&quot;no&quot;">
+                <if expression="ch==&quot;yes&quot;">
+                    <then>
+                        <output expression="&quot;insert your id&quot;" newline="True"/>
+                        <input variable="in"/>
+                        <if expression="in==id">
+                            <then>
+                                <output expression="&quot;would you like to delete your account&quot;" newline="True"/>
+                                <output expression="&quot;click any button to cancel&quot;" newline="True"/>
+                                <input variable="ch"/>
+                                <if expression="ch==&quot;yes&quot;">
+                                    <then>
+                                        <output expression="&quot;Are you Sure??!!&quot;" newline="True"/>
+                                        <output expression="&quot;click any button to cancel&quot;" newline="True"/>
+                                        <input variable="ch"/>
+                                        <if expression="ch==&quot;yes&quot;">
+                                            <then>
+                                                <output expression="&quot;Your account has been deleted&quot;" newline="True"/>
+                                                <breakpoint expression="" always="True"/>
+                                            </then>
+                                            <else/>
+                                        </if>
+                                    </then>
+                                    <else/>
+                                </if>
+                                <do expression="choice!=4">
+                                    <output expression="&quot;Bank system menu:&quot;" newline="True"/>
+                                    <output expression="&quot;1.view Balance&quot;" newline="True"/>
+                                    <output expression="&quot;2.Deposit money&quot;" newline="True"/>
+                                    <output expression="&quot;3.withdraw money&quot;" newline="True"/>
+                                    <output expression="&quot;4.Exit&quot;" newline="True"/>
+                                    <output expression="&quot;Enter Your choice:&quot;" newline="True"/>
+                                    <input variable="choice"/>
+                                    <while expression="choice&lt;1||choice&gt;4">
+                                        <output expression="&quot;Choice &quot;&amp;&amp;choice&amp;&amp;&quot; invalid&quot;" newline="True"/>
+                                        <output expression="&quot;Please choose from 1 --&gt;4: &quot;" newline="True"/>
+                                        <input variable="choice"/>
+                                    </while>
+                                    <if expression="choice==1">
+                                        <then>
+                                            <output expression="&quot;your balance is &quot; &amp; balance &amp; &quot; L.E.&quot;" newline="True"/>
+                                            <breakpoint expression="" always="True"/>
+                                        </then>
+                                        <else>
+                                            <if expression="choice==2">
+                                                <then>
+                                                    <output expression="&quot;your Deposit:&quot;" newline="True"/>
+                                                    <input variable="deposit"/>
+                                                    <while expression="deposit&lt;=0">
+                                                        <output expression="&quot;Your deposit amount &quot;&amp;deposit &amp;&quot; is invalid&quot;" newline="True"/>
+                                                        <output expression="&quot;Deposit amount must be positive&quot;" newline="True"/>
+                                                        <output expression="&quot;Enter deposit amount:&quot;" newline="True"/>
+                                                        <input variable="deposit"/>
+                                                    </while>
+                                                    <assign variable="balance" expression="balance+deposit"/>
+                                                    <output expression="deposit &amp; &quot; L.E.Are deposited Successfuly&quot;" newline="True"/>
+                                                    <output expression="&quot;Your total balance is &quot;&amp;balance &amp;&quot;.&quot;" newline="True"/>
+                                                    <breakpoint expression="" always="True"/>
+                                                </then>
+                                                <else>
+                                                    <if expression="choice==3">
+                                                        <then>
+                                                            <output expression="&quot;your withdraw:&quot;" newline="True"/>
+                                                            <input variable="wd"/>
+                                                            <while expression="wd&lt;=0">
+                                                                <output expression="&quot;Your withdraw amount&quot;&amp;&amp;wd &amp;&amp;&quot; is invalid&quot;" newline="True"/>
+                                                                <output expression="&quot;withdraw amount must be positive&quot;" newline="True"/>
+                                                                <output expression="&quot;Enter Withdraw amount:&quot;" newline="True"/>
+                                                                <input variable="wd"/>
+                                                            </while>
+                                                            <if expression="wd&lt;=balance">
+                                                                <then>
+                                                                    <assign variable="balance" expression="balance-wd"/>
+                                                                    <output expression="wd &amp;&quot; has be transacted Successfully&quot;" newline="True"/>
+                                                                    <output expression="&quot;Your current balance is &quot;&amp;balance&amp;&quot; L.E&quot;" newline="True"/>
+                                                                </then>
+                                                                <else>
+                                                                    <output expression="&quot;your Withdraw has been denied&quot;" newline="True"/>
+                                                                </else>
+                                                            </if>
+                                                            <breakpoint expression="" always="True"/>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="choice==4">
+                                                                <then>
+                                                                    <output expression="&quot;you have been exited&quot;" newline="True"/>
+                                                                    <breakpoint expression="" always="True"/>
+                                                                </then>
+                                                                <else/>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </else>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </do>
+                            </then>
+                            <else>
+                                <output expression="&quot;invalid&quot;" newline="True"/>
+                            </else>
+                        </if>
+                    </then>
+                    <else>
+                        <if expression="ch==&quot;no&quot;">
+                            <then>
+                                <output expression="&quot;Would you like to create an account&quot;" newline="True"/>
+                                <output expression="&quot;confirm:yes&quot;" newline="True"/>
+                                <output expression="&quot;else:to exit&quot;" newline="True"/>
+                                <input variable="ch"/>
+                                <if expression="ch==&quot;yes&quot;">
+                                    <then>
+                                        <output expression="&quot;your name is &quot;&amp; name" newline="True"/>
+                                        <output expression="&quot;your credit id is &quot;&amp; id" newline="True"/>
+                                        <output expression="&quot;plz re-open program&quot;" newline="True"/>
+                                        <breakpoint expression="" always="True"/>
+                                    </then>
+                                    <else>
+                                        <breakpoint expression="" always="True"/>
+                                    </else>
+                                </if>
+                            </then>
+                            <else>
+                                <output expression="&quot;invalid input&quot;" newline="True"/>
+                                <output expression="&quot;Please insert (yes or no) &quot;" newline="True"/>
+                                <input variable="ch"/>
+                                <if expression="ch!=&quot;yes&quot;||ch!=&quot;no&quot;">
+                                    <then/>
+                                    <else>
+                                        <breakpoint expression="" always="True"/>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </while>
+            <output expression="&quot;Thanks for your listening &quot;" newline="True"/>
+            <output expression="&quot;Done by Marwan Mohammed Shehata&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
